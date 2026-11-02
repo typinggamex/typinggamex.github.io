@@ -3,7 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Falling Asteroids // CYBERTYPER</title>
+  <title>Falling Asteroids Arcade // CYBERTYPER</title>
+  <meta name="description" content="Command your orbital defense ship in Falling Asteroids. Obliterate incoming meteors with laser strikes, explosive particle shockwaves, and touch typing speed practice.">
+  <meta name="keywords" content="falling asteroids, typing game, space defense typing, cybertyper arcade, wpm benchmark, touch typing practice">
+  <meta name="author" content="CYBERTYPER">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  
+  <!-- Primary Canonical Tag -->
+  <link rel="canonical" href="https://typigamx.in/games/asteroid-game.html">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typigamx.in/games/asteroid-game.html">
+  <meta property="og:title" content="Falling Asteroids Arcade // CYBERTYPER">
+  <meta property="og:description" content="Command your orbital defense ship in Falling Asteroids. Obliterate incoming meteors with laser strikes and touch typing speed practice.">
+  <meta property="og:image" content="https://typigamx.in/image/og-preview.png">
+  <meta property="og:site_name" content="CYBERTYPER">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typigamx.in/games/asteroid-game.html">
+  <meta name="twitter:title" content="Falling Asteroids Arcade // CYBERTYPER">
+  <meta name="twitter:description" content="Command your orbital defense ship in Falling Asteroids. Obliterate incoming meteors with laser strikes and touch typing speed practice.">
+  <meta name="twitter:image" content="https://typigamx.in/image/og-preview.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Falling Asteroids - CYBERTYPER",
+    "url": "https://typigamx.in/games/asteroid-game.html",
+    "description": "Command your orbital defense ship. Obliterate incoming meteors with laser strikes, explosive particle shockwaves, and deep audio blasts.",
+    "applicationCategory": "GameApplication",
+    "genre": "Typing Game",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "operatingSystem": "All"
+  }
+  </script>
+
   <style>
     :root {
       --bg-deep: #060814;
@@ -42,7 +81,6 @@
       user-select: none;
     }
 
-    /* Container: Compact width */
     .container {
       width: 100%;
       max-width: 780px;
@@ -53,7 +91,6 @@
       flex: 1;
     }
 
-    /* Header */
     .game-header {
       display: flex;
       align-items: center;
@@ -158,7 +195,6 @@
       color: var(--danger-glow);
     }
 
-    /* HUD Bar */
     .hud-bar {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -210,7 +246,6 @@
       color: #fff;
     }
 
-    /* Canvas Arena */
     .canvas-wrap {
       position: relative;
       width: 100%;
@@ -390,9 +425,6 @@
       letter-spacing: 1px;
     }
 
-    /* ==========================================================================
-       SCROLL DOWN: DETAILED INSTRUCTION MANUAL & RULES SECTION
-       ========================================================================== */
     .scroll-hint-bar {
       text-align: center;
       margin: 2.2rem 0 1rem;
@@ -565,7 +597,6 @@
       color: var(--gold-glow);
     }
 
-    /* Site Footer */
     .site-footer {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 1.75rem;
@@ -599,40 +630,22 @@
     }
 
     @media (max-width: 800px) {
-      .hud-bar {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .canvas-wrap {
-        height: 560px;
-      }
-      .gameover-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .htp-grid-detailed {
-        grid-template-columns: 1fr;
-      }
+      .hud-bar { grid-template-columns: repeat(3, 1fr); }
+      .canvas-wrap { height: 560px; }
+      .gameover-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .htp-grid-detailed { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 520px) {
-      .hud-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .canvas-wrap {
-        height: 480px;
-      }
-      .mobile-input-bar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .target-preview {
-        justify-content: space-between;
-      }
+      .hud-bar { grid-template-columns: repeat(2, 1fr); }
+      .canvas-wrap { height: 480px; }
+      .mobile-input-bar { flex-direction: column; align-items: stretch; }
+      .target-preview { justify-content: space-between; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Top Header -->
     <header class="game-header">
       <a href="../index.html" class="back-btn">
         <span>←</span> Hub
@@ -651,7 +664,6 @@
       </div>
     </header>
 
-    <!-- HUD Bar -->
     <div class="hud-bar">
       <div class="stat-card score">
         <div class="stat-label">Defense Score</div>
@@ -675,7 +687,6 @@
       </div>
     </div>
 
-    <!-- Main Game Canvas -->
     <div class="canvas-wrap" id="canvasWrap">
       <canvas id="gameCanvas"></canvas>
 
@@ -691,7 +702,6 @@
       </div>
     </div>
 
-    <!-- Input Bar -->
     <div class="mobile-input-bar">
       <input 
         type="text" 
@@ -708,15 +718,11 @@
       </div>
     </div>
 
-    <!-- Scroll Down Indicator -->
     <div class="scroll-hint-bar">
       <span>Scroll down for detailed tactical manual & instructions</span>
       <div class="scroll-hint-arrow">↓</div>
     </div>
 
-    <!-- ==========================================================================
-         DETAILED INSTRUCTIONS & COMBAT MANUAL (SCROLL DOWN AREA)
-         ========================================================================== -->
     <section class="how-to-play-section">
       <div class="htp-title-box">
         <span class="htp-tag">TACTICAL COMBAT MANUAL</span>
@@ -724,7 +730,6 @@
         <p>Comprehensive combat rules, lock-on targeting mechanics, and survival strategies.</p>
       </div>
 
-      <!-- Core 4 Steps Grid -->
       <div class="htp-grid-detailed">
         <div class="htp-card">
           <div class="htp-card-num">01</div>
@@ -759,7 +764,6 @@
         </div>
       </div>
 
-      <!-- Sector Progression & Scoring Mechanics -->
       <div class="htp-detail-banner">
         <h4>⚡ Sector Waves & Scoring Multipliers</h4>
         <ul>
@@ -770,13 +774,11 @@
         </ul>
       </div>
 
-      <!-- Pro Tips Banner -->
       <div class="htp-tip-banner">
         <strong>🛡️ Critical Survival Tip:</strong> Hamesha bottom line ke sabse nazdeek wale asteroid par focus karein! Top par naye spawn hone wale words se distract na hon. Home-row tactile bumps (<kbd>F</kbd> aur <kbd>J</kbd>) par ungliyan rakh kar blind typing practice karein taaki reaction time zero ho sake.
       </div>
     </section>
 
-    <!-- Footer Area (Mandatory Compliance Links) -->
     <footer class="site-footer">
       <ul class="footer-nav">
         <li><a href="../pages/content.html">News</a></li>
@@ -792,9 +794,6 @@
   </div>
 
   <script>
-    /* ==========================================================================
-       1. SOUND SYSTEM & SYNTHESIZERS (WEB AUDIO API - SINGLETON)
-       ========================================================================== */
     window.audioCtx = null;
     window.isMuted = localStorage.getItem('typing_site_sound_muted') === 'true';
     window.isAmbientOn = false;
@@ -1036,9 +1035,6 @@
       } catch (e) {}
     }
 
-    /* ==========================================================================
-       2. MP3 SOUND EFFECTS PRELOAD
-       ========================================================================== */
     const EXPLOSION_SOUNDS = {
       small:  { src: '../sound/dragon-studio-loud-explosion-425457.mp3', audio: null, loaded: false },
       medium: { src: '../sound/soundreality-explosion-fx-343683.mp3', audio: null, loaded: false },
@@ -1059,45 +1055,10 @@
       });
     }
 
-    function playExplosionSound(asteroid) {
-      if (window.isMuted) return;
-      const tier = (asteroid && asteroid.sizeTier) ? asteroid.sizeTier : 'medium';
-      const entry = EXPLOSION_SOUNDS[tier];
-      if (entry && entry.loaded && entry.audio) {
-        try {
-          const clone = entry.audio.cloneNode();
-          clone.volume = EXPLOSION_VOLUME[tier];
-          clone.play().catch(() => {});
-        } catch (e) {
-          playAsteroidDestroyed();
-        }
-      } else {
-        playAsteroidDestroyed();
-      }
-    }
-
-    /* ==========================================================================
-       3. DAILY USE VOCABULARY (COMMON ENGLISH WORDS)
-       ========================================================================== */
     const RAW_WORDS = {
-      short: [
-        "book", "desk", "milk", "door", "tree", "bird", "road", "rain", "gold", "fish",
-        "home", "park", "time", "hand", "ball", "ring", "coin", "cake", "boat", "card",
-        "fire", "wind", "snow", "baby", "bell", "blue", "bank", "rice", "salt", "warm"
-      ],
-      medium: [
-        "water", "house", "light", "money", "paper", "phone", "table", "chair",
-        "bread", "apple", "clock", "train", "plant", "music", "smile", "clean",
-        "green", "happy", "drink", "market", "school", "friend", "family", "window",
-        "street", "garden", "bottle", "camera", "coffee", "doctor", "driver", "travel",
-        "kitchen", "morning", "evening", "weather", "station", "summer", "winter", "office"
-      ],
-      long: [
-        "hospital", "computer", "mountain", "children", "question", "building",
-        "language", "business", "sunshine", "tomorrow", "notebook", "learning",
-        "umbrella", "vacation", "exercise", "strength", "painting", "shopping",
-        "medicine", "football", "calendar", "daughter", "beautiful", "important"
-      ]
+      short: ["book", "desk", "milk", "door", "tree", "bird", "road", "rain", "gold", "fish", "home", "park", "time", "hand", "ball", "ring", "coin", "cake", "boat", "card", "fire", "wind", "snow", "baby", "bell", "blue", "bank", "rice", "salt", "warm"],
+      medium: ["water", "house", "light", "money", "paper", "phone", "table", "chair", "bread", "apple", "clock", "train", "plant", "music", "smile", "clean", "green", "happy", "drink", "market", "school", "friend", "family", "window", "street", "garden", "bottle", "camera", "coffee", "doctor", "driver", "travel", "kitchen", "morning", "evening", "weather", "station", "summer", "winter", "office"],
+      long: ["hospital", "computer", "mountain", "children", "question", "building", "language", "business", "sunshine", "tomorrow", "notebook", "learning", "umbrella", "vacation", "exercise", "strength", "painting", "shopping", "medicine", "football", "calendar", "daughter", "beautiful", "important"]
     };
 
     function shuffleArray(arr) {
@@ -1157,9 +1118,6 @@
       return selected;
     }
 
-    /* ==========================================================================
-       4. CANVAS & BACKGROUND (MIRROR Y-FLIP FIX - 100% SEAMLESS, NO CUT)
-       ========================================================================== */
     const canvasWrap = document.getElementById('canvasWrap');
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
@@ -1221,7 +1179,7 @@
     window.addEventListener('resize', resizeCanvas);
 
     const bgImage = new Image();
-    bgImage.src = '../images/space-bg.jpg';
+    bgImage.src = '../image/space-bg.jpg';
     let bgLoaded = false;
     let bgScrollY = 0;
 
@@ -1229,18 +1187,12 @@
       bgLoaded = true;
       if (!isPlaying) drawBackground(16);
     };
-    bgImage.onerror = () => {
-      if (!bgImage.src.includes('/image/')) {
-        bgImage.src = '../image/space-bg.jpg';
-      }
-    };
 
     function drawBackground(delta = 16) {
       if (bgLoaded && bgImage.naturalWidth > 0) {
         const scrollSpeed = 0.035;
         const cw = canvas.width;
         const ch = canvas.height;
-
         const drawW = cw;
         const drawH = ch;
 
@@ -1279,9 +1231,6 @@
       setTimeout(() => canvasWrap.classList.remove('shake'), duration);
     }
 
-    /* ==========================================================================
-       5. FIGHTER SPACESHIP
-       ========================================================================== */
     const ship = {
       x: 0,
       y: 0,
@@ -1409,9 +1358,6 @@
       ctx.restore();
     }
 
-    /* ==========================================================================
-       6. COMPACT ASTEROID + NON-BOLD TEXT ON THE SIDE
-       ========================================================================== */
     class Asteroid {
       constructor(word, speed, spawnLane) {
         this.word = word;
@@ -1550,7 +1496,6 @@
         }
 
         ctx.restore();
-
         this.drawWordPill();
       }
 
@@ -1608,9 +1553,6 @@
       }
     }
 
-    /* ==========================================================================
-       7. VISUAL EFFECTS
-       ========================================================================== */
     class LaserBeam {
       constructor(fromX, fromY, toX, toY) {
         this.fromX = fromX;
@@ -1619,9 +1561,7 @@
         this.toY = toY;
         this.alpha = 1;
       }
-      update() {
-        this.alpha -= 0.14;
-      }
+      update() { this.alpha -= 0.14; }
       draw() {
         ctx.save();
         ctx.globalAlpha = Math.max(0, this.alpha);
@@ -1633,7 +1573,6 @@
         ctx.moveTo(this.fromX, this.fromY);
         ctx.lineTo(this.toX, this.toY);
         ctx.stroke();
-
         ctx.strokeStyle = '#ffffff';
         ctx.lineWidth = 1.8;
         ctx.stroke();
@@ -1791,9 +1730,6 @@
       playShipExplosion();
     }
 
-    /* ==========================================================================
-       8. SPAWNING & DIFFICULTY
-       ========================================================================== */
     function spawnAsteroid() {
       let tier = 'short';
       const r = Math.random();
@@ -1828,9 +1764,6 @@
       asteroids.push(new Asteroid(word, finalSpeed, lane));
     }
 
-    /* ==========================================================================
-       9. INPUT & TARGETING
-       ========================================================================== */
     function handleKey(char) {
       if (!isPlaying || !char || char.length !== 1 || !ship.alive) return;
       const lower = char.toLowerCase();
@@ -1886,7 +1819,6 @@
       updateHighScore(score);
       floatingTexts.push(new FloatingText(`+${pts}`, ast.x - 15, ast.y, '#ffd700', 20));
       createAsteroidExplosion(ast);
-      playExplosionSound(ast);
       playLaserBlast();
 
       asteroids = asteroids.filter(a => a !== ast);
@@ -1934,9 +1866,6 @@
       hudAcc.textContent = `${acc}%`;
     }
 
-    /* ==========================================================================
-       10. GAME OVER & RESET
-       ========================================================================== */
     function triggerGameOver() {
       if (!isPlaying) return;
       isPlaying = false;
@@ -2038,9 +1967,6 @@
       animationFrameId = requestAnimationFrame(gameLoop);
     }
 
-    /* ==========================================================================
-       11. GAME LOOP
-       ========================================================================== */
     let lastFrameTime = performance.now();
 
     function gameLoop(timestamp) {
@@ -2111,9 +2037,6 @@
       }
     }
 
-    /* ==========================================================================
-       12. EVENT LISTENERS
-       ========================================================================== */
     window.addEventListener('keydown', (e) => {
       if (!isPlaying) return;
       if (e.key === 'Backspace' && targetedAsteroid) {
@@ -2138,7 +2061,7 @@
     });
 
     canvasWrap.addEventListener('click', () => {
-      mobileKeyInput.focus();
+      mobileKeyItemInput.focus();
     });
 
     startBtn.addEventListener('click', () => {
