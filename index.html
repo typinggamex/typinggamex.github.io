@@ -62,7 +62,20 @@
   <style>
     .site-header { min-height: 70px; }
     .hero { min-height: 220px; }
-    .brand-icon { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+    
+    /* Logo Styling */
+    .brand-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .site-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
 
     /* Card Image Integration */
     .game-card {
@@ -117,7 +130,7 @@
     <!-- Header -->
     <header class="site-header">
       <a href="index.html" class="brand-wrapper">
-        <div class="brand-icon">⚡</div>
+        <img src="image/logo.png" alt="CYBERTYPER Logo" class="site-logo">
         <div>
           <div class="brand-title">CYBERTYPER</div>
           <div class="brand-subtitle">Space Typing Arcade</div>
@@ -392,7 +405,7 @@
       if (themeBtn) {
         themeBtn.addEventListener('click', function(e) {
           e.preventDefault();
-          const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+          const currentTheme = document.documentElement.setAttribute('data-theme') || 'dark';
           const newTheme = currentTheme === 'light' ? 'dark' : 'light';
           
           document.documentElement.setAttribute('data-theme', newTheme);
