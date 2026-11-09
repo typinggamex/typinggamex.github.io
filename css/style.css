@@ -176,10 +176,17 @@ body:has(.canvas-wrap) .container,
 .brand-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
   min-width: 180px;
+}
+
+.site-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-icon {
@@ -473,7 +480,7 @@ body:has(.canvas-wrap) .container,
   background: var(--bg-card);
   border: 1px solid var(--border-neon);
   border-radius: 16px;
-  padding: 0; /* Padding moved to .card-body to allow full-width image header */
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -482,7 +489,7 @@ body:has(.canvas-wrap) .container,
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: var(--shadow-box);
-  min-height: 380px; /* Adjusted height for photo inclusion */
+  min-height: 380px;
   transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
               border-color 0.28s ease,
               box-shadow 0.28s ease;
