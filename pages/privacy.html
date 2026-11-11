@@ -62,10 +62,8 @@
 </head>
 <body>
   <div class="policy-container">
-    <header class="game-header" style="border-bottom: 1px solid rgba(0, 240, 255, 0.15); margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem;">
-      <a href="../index.html" class="btn-neon" style="text-decoration: none;">← Back to Hub</a>
-      <div style="font-weight: 800; color: var(--cyan-glow); letter-spacing: 1px;">CYBERTYPER</div>
-    </header>
+    <!-- Header Placeholder injected via JS -->
+    <div id="header-placeholder"></div>
 
     <main class="policy-card">
       <h1>Privacy Policy</h1>
@@ -137,5 +135,15 @@
       <div>© 2026 CYBERTYPER • Built with Modern Web Standards & Web Audio API</div>
     </footer>
   </div>
+
+  <!-- JavaScript to Fetch and Load Header Dynamically -->
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading header:', error));
+  </script>
 </body>
 </html>
