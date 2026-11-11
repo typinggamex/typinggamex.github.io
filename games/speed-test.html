@@ -703,7 +703,7 @@
     </footer>
   </div>
 
-  <!-- JavaScript Typing Engine with Story Passages -->
+  <!-- JavaScript Typing Engine with Story Passages and Mode Switcher -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const passages = [
@@ -714,9 +714,10 @@
       ];
 
       let currentPassageIndex = 0;
+      let currentMode = "passage"; // "passage", "30", "60"
       let timer = null;
       let timeElapsed = 0;
-      let totalTyped = 0;
+      let timeLeft = 0;
       let errors = 0;
       let isStarted = false;
       let isFinished = false;
@@ -732,6 +733,7 @@
       const passageNum = document.getElementById("passageNum");
       const restartBtn = document.getElementById("restartBtn");
       const nextPassageBtn = document.getElementById("nextPassageBtn");
+      const modeButtons = document.querySelectorAll(".mode-btn");
 
       function loadPassage(index) {
         if (!textDisplay) return;
@@ -766,7 +768,7 @@
         const firstChar = textDisplay.querySelector(".char");
         if (firstChar) firstChar.classList.add("current");
 
-        if (passageNum) passageNum.textContent = `Passage #${index + 1}`;
+        if (passageNum) passageNum.textContent = currentMode === "passage" ? `Passage #${index + 1}` : `Timed Mode (${currentMode}s)`;
         resetState();
       }
 
@@ -775,14 +777,24 @@
         isStarted = false;
         isFinished = false;
         timeElapsed = 0;
-        totalTyped = 0;
+        if (currentMode === "30") timeLeft = 30;
+        else if (currentMode === "60") timeLeft = 60;
+        else timeLeft = 0;
+
         errors = 0;
         if (mobileInput) mobileInput.value = "";
         if (typingArena) typingArena.classList.remove("focused");
         if (hudWpm) hudWpm.textContent = "0";
         if (hudAcc) hudAcc.textContent = "100%";
         if (hudErr) hudErr.textContent = "0";
-        if (hudTime) hudTime.textContent = "00:00";
+        
+        if (currentMode === "passage") {
+          if (hudTime) hudTime.textContent = "00:00";
+        } else {
+          let mins = Math.floor(timeLeft / 60);
+          let secs = timeLeft % 60;
+          if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
         if (progressFill) progressFill.style.width = "0%";
       }
 
@@ -791,9 +803,19 @@
         if (mobileInput) mobileInput.focus();
       }
 
+      // Mode switching listener
+      modeButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          modeButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentMode = btn.getAttribute("data-mode");
+          initTest();
+        });
+      });
+
       // Handle typing input via hidden input field
       if (mobileInput) {
-        mobileInput.addEventListener("input", (e) => {
+        mobileInput.addEventListener("input", () => {
           if (isFinished) return;
 
           const typedValue = mobileInput.value;
@@ -803,22 +825,43 @@
           if (!isStarted && typedValue.length > 0) {
             isStarted = true;
             if (typingArena) typingArena.classList.add("focused");
+            
             timer = setInterval(() => {
-              timeElapsed++;
-              let mins = Math.floor(timeElapsed / 60);
-              let secs = timeElapsed % 60;
-              if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-              
-              if (timeElapsed > 0) {
-                let wordsTypedCount = (typedValue.length / 5);
-                let wpm = Math.round((wordsTypedCount / timeElapsed) * 60);
-                if (hudWpm) hudWpm.textContent = wpm > 0 ? wpm : 0;
+              if (currentMode === "passage") {
+                timeElapsed++;
+                let mins = Math.floor(timeElapsed / 60);
+                let secs = timeElapsed % 60;
+                if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+                
+                if (timeElapsed > 0) {
+                  let wordsTypedCount = (typedValue.length / 5);
+                  let wpm = Math.round((wordsTypedCount / timeElapsed) * 60);
+                  if (hudWpm) hudWpm.textContent = wpm > 0 ? wpm : 0;
+                }
+              } else {
+                // Countdown modes (30s / 60s)
+                timeLeft--;
+                let mins = Math.floor(timeLeft / 60);
+                let secs = timeLeft % 60;
+                if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+                
+                let timeSpent = (currentMode === "30" ? 30 : 60) - timeLeft;
+                if (timeSpent > 0) {
+                  let wordsTypedCount = (typedValue.length / 5);
+                  let wpm = Math.round((wordsTypedCount / timeSpent) * 60);
+                  if (hudWpm) hudWpm.textContent = wpm > 0 ? wpm : 0;
+                }
+
+                if (timeLeft <= 0) {
+                  clearInterval(timer);
+                  isFinished = true;
+                  if (typingArena) typingArena.classList.remove("focused");
+                }
               }
             }, 1000);
           }
 
           errors = 0;
-
           chars.forEach((charSpan, idx) => {
             charSpan.classList.remove("correct", "wrong", "current", "current-end", "pending");
             if (idx < typedValue.length) {
@@ -844,7 +887,7 @@
             progressFill.style.width = `${Math.min(100, progressPct)}%`;
           }
 
-          if (typedValue.length >= chars.length) {
+          if (currentMode === "passage" && typedValue.length >= chars.length) {
             clearInterval(timer);
             isFinished = true;
             if (typingArena) typingArena.classList.remove("focused");
