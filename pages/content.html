@@ -136,10 +136,8 @@
 </head>
 <body>
   <div class="article-container">
-    <header class="game-header" style="border-bottom: 1px solid rgba(0, 240, 255, 0.15); margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem;">
-      <a href="../index.html" class="btn-neon" style="text-decoration: none;">← Back to Hub</a>
-      <div style="font-weight: 800; color: var(--cyan-glow); letter-spacing: 1px;">CYBERTYPER GUIDES</div>
-    </header>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
     <div class="article-hero">
       <h1>The Science of High-Velocity Touch Typing</h1>
@@ -408,7 +406,7 @@
         Yet even on glass, the ghost of Christopher Sholes remains. Your smartphone keyboard uses software prediction algorithms, haptic vibration motors, and auto-correct models powered by neural networks. But beneath that bleeding-edge technology sits the very same Q-W-E-R-T-Y layout, designed originally to keep flimsy iron rods from smacking into each other in a cold Wisconsin workshop over 150 years ago.
       </p>
       <p>
-        Next time you draft an email or send a quick text, pay attention to the effortless, unthinking dance of your fingers. You are using one of the oldest surviving interfaces of the industrial age. We didn't keep it because it was perfect. We kept it because we learned to live with its flaws, and in doing so, turned a purely mechanical workaround into our primary language for talking to machines.
+        Next time you directory draft an email or send a quick text, pay attention to the effortless, unthinking dance of your fingers. You are using one of the oldest surviving interfaces of the industrial age. We didn't keep it because it was perfect. We kept it because we learned to live with its flaws, and in doing so, turned a purely mechanical workaround into our primary language for talking to machines.
       </p>
     </article>
 
@@ -422,5 +420,15 @@
       <div>© 2026 CYBERTYPER • Built with Modern Web Standards & Web Audio API</div>
     </footer>
   </div>
+
+  <!-- JavaScript to Fetch and Load Header Dynamically -->
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading header:', error));
+  </script>
 </body>
 </html>
