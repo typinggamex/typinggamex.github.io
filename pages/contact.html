@@ -282,6 +282,20 @@
       color: #fecdd3;
       box-shadow: 0 0 20px rgba(255, 51, 102, 0.2);
     }
+
+    /* Logo & Header Fixes for Subpages */
+    .brand-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .site-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -289,61 +303,8 @@
   <canvas id="starsCanvas" class="stars-bg"></canvas>
 
   <div class="container">
-    <!-- Header -->
-    <header class="site-header">
-      <a href="../index.html" class="brand-wrapper">
-        <div class="brand-icon">⚡</div>
-        <div>
-          <div class="brand-title">CYBERTYPER</div>
-          <div class="brand-subtitle">Space Typing Arcade</div>
-        </div>
-      </a>
-
-      <!-- Navigation Menu -->
-      <nav id="cyberMainNav" class="cyber-nav" aria-label="Main Navigation">
-        <div class="cyber-nav-item">
-          <a href="../index.html" class="cyber-nav-link">Home</a>
-        </div>
-        <div class="cyber-nav-item cyber-dropdown" id="cyberGamesDropdown">
-          <button class="cyber-nav-link" id="cyberGamesTrigger" aria-expanded="false" aria-haspopup="true">
-            Games <span class="dropdown-arrow">▼</span>
-          </button>
-          <ul class="cyber-dropdown-menu" aria-label="Games Submenu">
-            <li class="cyber-dropdown-item"><a href="../games/speed-test.html" class="cyber-dropdown-link">⚡ Speed Typing Test</a></li>
-            <li class="cyber-dropdown-item"><a href="../games/falling-words.html" class="cyber-dropdown-link">🌧️ Falling Words</a></li>
-            <li class="cyber-dropdown-item"><a href="../games/typing-race.html" class="cyber-dropdown-link">🏎️ Typing Race vs Bot</a></li>
-            <li class="cyber-dropdown-item"><a href="../games/asteroid-game.html" class="cyber-dropdown-link">☄️ Falling Asteroids</a></li>
-          </ul>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="help.html" class="cyber-nav-link">Help</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="faq.html" class="cyber-nav-link">FAQ</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="about.html" class="cyber-nav-link">About</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="terms.html" class="cyber-nav-link">Terms</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="contact.html" class="cyber-nav-link active" aria-current="page">Contact</a>
-        </div>
-      </nav>
-
-      <!-- Actions: Sound + Hamburger -->
-      <div class="header-actions">
-        <button id="soundToggle" class="sound-toggle-btn" aria-label="Toggle Sound" title="Sound Mute/Unmute">
-          <span id="soundIcon">🔊</span>
-        </button>
-        <button id="cyberNavToggle" class="cyber-hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="cyberMainNav">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </header>
+    <!-- Dynamic Header Loader Target -->
+    <header class="site-header" id="mainHeader"></header>
 
     <!-- Main Content -->
     <main class="contact-container">
@@ -384,7 +345,7 @@
             </div>
           </div>
 
-          <!-- UPDATED SOCIAL CHANNELS WITH YOUR NEW INFO -->
+          <!-- Social Channels -->
           <div class="info-card">
             <div class="info-card-header">
               <span class="info-icon">🌐</span>
@@ -411,7 +372,7 @@
             ❌ <strong>Transmission Failed.</strong> We couldn't send your message right now. Please try again or email us directly at <a href="mailto:typinggamex@gmail.com" style="color:#ffffff;text-decoration:underline;">typinggamex@gmail.com</a>.
           </div>
 
-          <!-- Formspree Endpoint Updated -->
+          <!-- Formspree Endpoint -->
           <form id="contactForm" action="https://formspree.io/f/moejybbq" method="POST" novalidate>
             <!-- Spam Protection Honeypot -->
             <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
@@ -482,6 +443,20 @@
       <div class="footer-copy">© 2026 CYBERTYPER • Built with Modern Web Standards & Web Audio API</div>
     </footer>
   </div>
+
+  <!-- Dynamic Header Loader Script (Adjusted with '../header.html' for subpages) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('../header.html')
+        .then(response => response.text())
+        .then(data => {
+          const headerEl = document.getElementById('mainHeader');
+          if (headerEl) {
+            headerEl.innerHTML = data;
+          }
+        });
+    });
+  </script>
 
   <script src="../js/nav.js"></script>
   <script>
