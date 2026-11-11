@@ -136,8 +136,58 @@
 </head>
 <body>
   <div class="article-container">
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
+    <!-- Direct Responsive Header for Sub-pages -->
+    <header class="site-header">
+      <a href="../index.html" class="brand-wrapper">
+        <img src="../image/logo.png" alt="CYBERTYPER Logo" class="site-logo">
+        <div>
+          <div class="brand-title">CYBERTYPER</div>
+          <div class="brand-subtitle">Space Typing Arcade</div>
+        </div>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav id="cyberMainNav" class="cyber-nav" aria-label="Main Navigation">
+        <div class="cyber-nav-item">
+          <a href="../index.html" class="cyber-nav-link">Home</a>
+        </div>
+        <div class="cyber-nav-item cyber-dropdown" id="cyberGamesDropdown">
+          <button class="cyber-nav-link" id="cyberGamesTrigger" aria-expanded="false" aria-haspopup="true">
+            Games <span class="dropdown-arrow">▼</span>
+          </button>
+          <ul class="cyber-dropdown-menu" aria-label="Games Submenu">
+            <li class="cyber-dropdown-item"><a href="../games/speed-test.html" class="cyber-dropdown-link">⚡ Speed Typing Test</a></li>
+            <li class="cyber-dropdown-item"><a href="../games/falling-words.html" class="cyber-dropdown-link">🌧️ Falling Words</a></li>
+            <li class="cyber-dropdown-item"><a href="../games/typing-race.html" class="cyber-dropdown-link">🏎️ Typing Race vs Bot</a></li>
+            <li class="cyber-dropdown-item"><a href="../games/asteroid-game.html" class="cyber-dropdown-link">☄️ Falling Asteroids</a></li>
+          </ul>
+        </div>
+        <div class="cyber-nav-item">
+          <a href="content.html" class="cyber-nav-link active" aria-current="page">News</a>
+        </div>
+        <div class="cyber-nav-item">
+          <a href="about.html" class="cyber-nav-link">About</a>
+        </div>
+        <div class="cyber-nav-item">
+          <a href="contact.html" class="cyber-nav-link">Contact</a>
+        </div>
+      </nav>
+
+      <!-- Actions: Theme Toggle + Sound + Hamburger -->
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="sound-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+          <span id="themeIcon">☀️</span>
+        </button>
+        <button id="soundToggle" class="sound-toggle-btn" aria-label="Toggle Sound" title="Sound Mute/Unmute">
+          <span id="soundIcon">🔊</span>
+        </button>
+        <button id="cyberNavToggle" class="cyber-hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="cyberMainNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
 
     <div class="article-hero">
       <h1>The Science of High-Velocity Touch Typing</h1>
@@ -406,7 +456,7 @@
         Yet even on glass, the ghost of Christopher Sholes remains. Your smartphone keyboard uses software prediction algorithms, haptic vibration motors, and auto-correct models powered by neural networks. But beneath that bleeding-edge technology sits the very same Q-W-E-R-T-Y layout, designed originally to keep flimsy iron rods from smacking into each other in a cold Wisconsin workshop over 150 years ago.
       </p>
       <p>
-        Next time you directory draft an email or send a quick text, pay attention to the effortless, unthinking dance of your fingers. You are using one of the oldest surviving interfaces of the industrial age. We didn't keep it because it was perfect. We kept it because we learned to live with its flaws, and in doing so, turned a purely mechanical workaround into our primary language for talking to machines.
+        Next time you draft an email or send a quick text, pay attention to the effortless, unthinking dance of your fingers. You are using one of the oldest surviving interfaces of the industrial age. We didn't keep it because it was perfect. We kept it because we learned to live with its flaws, and in doing so, turned a purely mechanical workaround into our primary language for talking to machines.
       </p>
     </article>
 
@@ -421,14 +471,6 @@
     </footer>
   </div>
 
-  <!-- JavaScript to Fetch and Load Header Dynamically -->
-  <script>
-    fetch('/header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading header:', error));
-  </script>
+  <script src="../js/nav.js"></script>
 </body>
 </html>
