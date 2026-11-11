@@ -414,107 +414,6 @@
       color: var(--text-muted);
     }
 
-    /* Modal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(6, 8, 20, 0.88);
-      backdrop-filter: blur(16px);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal-backdrop.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .results-card {
-      background: rgba(16, 24, 52, 0.95);
-      border: 1px solid var(--cyan-glow);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 520px;
-      padding: 2.25rem;
-      text-align: center;
-      box-shadow: 0 0 40px rgba(0, 240, 255, 0.35);
-      transform: scale(0.92);
-      transition: transform 0.3s ease;
-    }
-
-    .modal-backdrop.show .results-card { transform: scale(1); }
-
-    .results-badge {
-      display: inline-block;
-      padding: 0.35rem 0.9rem;
-      border-radius: 20px;
-      background: rgba(0, 255, 136, 0.15);
-      border: 1px solid var(--emerald-glow);
-      color: var(--emerald-glow);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .results-hero-wpm {
-      font-size: 4rem;
-      font-weight: 900;
-      font-family: var(--font-mono);
-      color: var(--cyan-glow);
-      text-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
-      line-height: 1;
-    }
-
-    .results-hero-label {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 1.5rem;
-    }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    .result-item {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 0.75rem 0.5rem;
-    }
-
-    .result-item .item-val {
-      font-size: 1.3rem;
-      font-weight: 800;
-      font-family: var(--font-mono);
-      color: #fff;
-    }
-
-    .result-item .item-lbl {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-top: 0.25rem;
-    }
-
-    .modal-btns {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-
     /* Scroll Down Area */
     .scroll-hint-bar {
       text-align: center;
@@ -632,62 +531,6 @@
       color: var(--cyan-glow);
     }
 
-    .htp-detail-banner {
-      background: rgba(14, 24, 52, 0.75);
-      border: 1px solid rgba(0, 240, 255, 0.25);
-      border-radius: 14px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .htp-detail-banner h4 {
-      color: var(--cyan-glow);
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .htp-detail-banner ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .htp-detail-banner li {
-      font-size: 0.9rem;
-      color: #d1dcfa;
-      line-height: 1.5;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
-    .htp-detail-banner li::before {
-      content: '✦';
-      color: var(--cyan-glow);
-      font-size: 0.8rem;
-      margin-top: 2px;
-    }
-
-    .htp-tip-banner {
-      background: rgba(0, 255, 136, 0.08);
-      border-left: 4px solid var(--emerald-glow);
-      padding: 1.1rem 1.3rem;
-      border-radius: 0 10px 10px 0;
-      font-size: 0.92rem;
-      color: #e6fffa;
-      line-height: 1.55;
-    }
-
-    .htp-tip-banner strong {
-      color: var(--gold-glow);
-    }
-
     /* Site Footer */
     .site-footer {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -723,7 +566,6 @@
 
     @media (max-width: 650px) {
       .hud-bar { grid-template-columns: repeat(2, 1fr); }
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
       .text-display { font-size: 1.15rem; }
       .mode-bar { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
       .htp-grid-detailed { grid-template-columns: 1fr; }
@@ -845,4 +687,180 @@
           <div class="htp-card-num">04</div>
           <div class="htp-card-body">
             <h3>Instant Test Restart</h3>
-            <p>Agar aap test bich me restart karna chahte hain toh simple <kbd>Esc</kbd> ya <kbd>Tab</kbd> press karein. Test instant reset hokar fresh start de
+            <p>Agar aap test bich me restart karna chahte hain toh simple <kbd>Esc</kbd> ya <kbd>Tab</kbd> press karein. Test instant reset hokar fresh start dega.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <ul class="footer-nav">
+        <li><a href="../index.html">Home Hub</a></li>
+        <li><a href="#">Benchmark Rules</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 CYBERTYPER. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript Typing Engine -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const passages = [
+        "The digital frontier expands continuously as developers craft new protocols and interfaces to shape tomorrow's interconnected cyberspace.",
+        "Speed typing tests measure your precision and cadence across varied keyboard layouts to build reliable muscle memory and efficiency.",
+        "Neon lights flicker across the futuristic urban grid while cybernetic networks transmit data streams silently through the encrypted night."
+      ];
+
+      let currentPassageIndex = 0;
+      let timer = null;
+      let timeElapsed = 0;
+      let totalTyped = 0;
+      let errors = 0;
+      let isStarted = false;
+      let isFinished = false;
+
+      const textDisplay = document.getElementById("textDisplay");
+      const mobileInput = document.getElementById("mobileInput");
+      const typingArena = document.getElementById("typingArena");
+      const hudWpm = document.getElementById("hudWpm");
+      const hudAcc = document.getElementById("hudAcc");
+      const hudErr = document.getElementById("hudErr");
+      const hudTime = document.getElementById("hudTime");
+      const progressFill = document.getElementById("progressFill");
+      const passageNum = document.getElementById("passageNum");
+      const restartBtn = document.getElementById("restartBtn");
+      const nextPassageBtn = document.getElementById("nextPassageBtn");
+
+      function loadPassage(index) {
+        if (!textDisplay) return;
+        const text = passages[index];
+        textDisplay.innerHTML = "";
+        
+        // Wrap each character in span elements for active highlighting
+        text.split("").forEach((char, idx) => {
+          const span = document.createElement("span");
+          span.classList.add("char", "pending");
+          if (idx === 0) span.classList.add("current");
+          span.textContent = char;
+          textDisplay.appendChild(span);
+        });
+
+        if (passageNum) passageNum.textContent = `Passage #${index + 1}`;
+        resetState();
+      }
+
+      function resetState() {
+        clearInterval(timer);
+        isStarted = false;
+        isFinished = false;
+        timeElapsed = 0;
+        totalTyped = 0;
+        errors = 0;
+        if (mobileInput) mobileInput.value = "";
+        if (typingArena) typingArena.classList.remove("focused");
+        if (hudWpm) hudWpm.textContent = "0";
+        if (hudAcc) hudAcc.textContent = "100%";
+        if (hudErr) hudErr.textContent = "0";
+        if (hudTime) hudTime.textContent = "00:00";
+        if (progressFill) progressFill.style.width = "0%";
+      }
+
+      function initTest() {
+        loadPassage(currentPassageIndex);
+        if (mobileInput) mobileInput.focus();
+      }
+
+      // Handle typing input via hidden input field
+      if (mobileInput) {
+        mobileInput.addEventListener("input", (e) => {
+          if (isFinished) return;
+
+          const typedValue = mobileInput.value;
+          const chars = textDisplay.querySelectorAll(".char");
+
+          // Start timer on first input
+          if (!isStarted && typedValue.length > 0) {
+            isStarted = true;
+            if (typingArena) typingArena.classList.add("focused");
+            timer = setInterval(() => {
+              timeElapsed++;
+              let mins = Math.floor(timeElapsed / 60);
+              let secs = timeElapsed % 60;
+              if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+              
+              // Calculate WPM & Accuracy live
+              if (timeElapsed > 0) {
+                let wordsTypedCount = (typedValue.length / 5);
+                let wpm = Math.round((wordsTypedCount / timeElapsed) * 60);
+                if (hudWpm) hudWpm.textContent = wpm > 0 ? wpm : 0;
+              }
+            }, 1000);
+          }
+
+          let currentIdx = typedValue.length - 1;
+          errors = 0;
+
+          chars.forEach((charSpan, idx) => {
+            charSpan.classList.remove("correct", "wrong", "current", "current-end", "pending");
+            if (idx < typedValue.length) {
+              if (typedValue[idx] === charSpan.textContent) {
+                charSpan.classList.add("correct");
+              } else {
+                charSpan.classList.add("wrong");
+                errors++;
+              }
+            } else if (idx === typedValue.length) {
+              charSpan.classList.add("current");
+            } else {
+              charSpan.classList.add("pending");
+            }
+          });
+
+          if (hudErr) hudErr.textContent = errors;
+          let accuracy = typedValue.length > 0 ? Math.max(0, Math.round(((typedValue.length - errors) / typedValue.length) * 100)) : 100;
+          if (hudAcc) hudAcc.textContent = `${accuracy}%`;
+
+          if (progressFill) {
+            let progressPct = (typedValue.length / chars.length) * 100;
+            progressFill.style.width = `${Math.min(100, progressPct)}%`;
+          }
+
+          // Check if passage completed
+          if (typedValue.length >= chars.length) {
+            clearInterval(timer);
+            isFinished = true;
+            if (typingArena) typingArena.classList.remove("focused");
+          }
+        });
+      }
+
+      // Keyboard shortcut handlers (Esc or Tab to restart)
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" || (e.key === "Tab" && document.activeElement === mobileInput)) {
+          if (e.key === "Tab") e.preventDefault();
+          initTest();
+        }
+      });
+
+      if (restartBtn) {
+        restartBtn.addEventListener("click", () => initTest());
+      }
+
+      if (nextPassageBtn) {
+        nextPassageBtn.addEventListener("click", () => {
+          currentPassageIndex = (currentPassageIndex + 1) % passages.length;
+          initTest();
+        });
+      }
+
+      if (typingArena && mobileInput) {
+        typingArena.addEventListener("click", () => mobileInput.focus());
+      }
+
+      // Initial load setup
+      initTest();
+    });
+  </script>
+</body>
+</html>
