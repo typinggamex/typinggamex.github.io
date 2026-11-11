@@ -309,61 +309,8 @@
   <canvas id="starsCanvas" class="stars-bg"></canvas>
 
   <div class="container">
-    <!-- Header -->
-    <header class="site-header">
-      <a href="../index.html" class="brand-wrapper">
-        <div class="brand-icon">⚡</div>
-        <div>
-          <div class="brand-title">CYBERTYPER</div>
-          <div class="brand-subtitle">Space Typing Arcade</div>
-        </div>
-      </a>
-
-      <!-- Navigation Menu -->
-      <nav id="cyberMainNav" class="cyber-nav" aria-label="Main Navigation">
-        <div class="cyber-nav-item">
-          <a href="../index.html" class="cyber-nav-link">Home</a>
-        </div>
-        <div class="cyber-nav-item cyber-dropdown" id="cyberGamesDropdown">
-          <button class="cyber-nav-link" id="cyberGamesTrigger" aria-expanded="false" aria-haspopup="true">
-            Games <span class="dropdown-arrow">▼</span>
-          </button>
-          <ul class="cyber-dropdown-menu" aria-label="Games Submenu">
-            <li class="cyber-dropdown-item"><a href="../games/speed-test.html" class="cyber-dropdown-link">⚡ Speed Typing Test</a></li>
-            <li class="cyber-dropdown-item"><a href="../games/falling-words.html" class="cyber-dropdown-link">🌧️ Falling Words</a></li>
-            <li class="cyber-dropdown-item"><a href="../games/typing-race.html" class="cyber-dropdown-link">🏎️ Typing Race vs Bot</a></li>
-            <li class="cyber-dropdown-item"><a href="../games/asteroid-game.html" class="cyber-dropdown-link">☄️ Falling Asteroids</a></li>
-          </ul>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="help.html" class="cyber-nav-link active" aria-current="page">Help</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="faq.html" class="cyber-nav-link">FAQ</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="about.html" class="cyber-nav-link">About</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="terms.html" class="cyber-nav-link">Terms</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="contact.html" class="cyber-nav-link">Contact</a>
-        </div>
-      </nav>
-
-      <!-- Actions: Sound + Hamburger -->
-      <div class="header-actions">
-        <button id="soundToggle" class="sound-toggle-btn" aria-label="Toggle Sound" title="Sound Mute/Unmute">
-          <span id="soundIcon">🔊</span>
-        </button>
-        <button id="cyberNavToggle" class="cyber-hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="cyberMainNav">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </header>
+    <!-- Header Placeholder injected via JS -->
+    <div id="header-placeholder"></div>
 
     <!-- Main Content -->
     <main class="help-container" id="top">
@@ -382,7 +329,7 @@
         <a href="#still-need-help" class="quick-nav-pill">💬 Contact Support</a>
       </nav>
 
-      <!-- Section 1: Getting Started (UPDATED) -->
+      <!-- Section 1: Getting Started -->
       <section class="help-section" id="getting-started">
         <h2 class="section-title"><span class="glow-icon">🚀</span> Welcome to the Help Center!</h2>
         <div class="guide-card" style="--guide-color: var(--cyan-glow);">
@@ -628,6 +575,14 @@
 
   <script src="../js/nav.js"></script>
   <script>
+    // Fetch and Load Header Dynamically
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading header:', error));
+
     // Shared Sound Controller & Starfield
     window.audioCtx = null;
     window.isMuted = localStorage.getItem('typing_site_sound_muted') === 'true';
