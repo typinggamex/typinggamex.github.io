@@ -93,12 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       2. SPEED TYPING TEST ENGINE (FIXED FOR TEXT DISPLAY)
+       2. SPEED TYPING TEST ENGINE (WITH STORY PASSAGES)
        ========================================================================== */
     const passages = [
-        "The digital frontier expands continuously as developers craft new protocols and interfaces to shape tomorrow's interconnected cyberspace.",
-        "Speed typing tests measure your precision and cadence across varied keyboard layouts to build reliable muscle memory and efficiency.",
-        "Neon lights flicker across the futuristic urban grid while cybernetic networks transmit data streams silently through the encrypted night."
+        "Leo woke up early to watch the sunrise. The sky started soft and pink, turning bright gold as the morning breeze rustled the garden leaves. He loved these quiet moments before the busy day began.",
+        "Yesterday, his grandfather had shared an ancient wooden puzzle. The complex mechanism featured intricate brass gears and a hidden latch. At first, Leo felt overwhelmed by the perplexing design. Every twist seemed futile, and the tiny interlocking pieces resisted his logical efforts.",
+        "Instead of surrendering, he analyzed the geometric patterns carefully. He discovered a subtle indentation on the side panel. With a gentle push, a secret compartment opened, revealing a handwritten journal from decades past. The fading pages detailed a remarkable journey across uncharted oceans, filled with breathtaking discoveries and profound resilience.",
+        "Leo realized that every challenge in life, no matter how formidable or obscure, carries hidden wisdom. By maintaining relentless curiosity and patience, we unlock doors we never knew existed. He smiled, ready to embrace whatever extraordinary adventures awaited him today."
     ];
 
     let currentPassageIndex = 0;
@@ -112,21 +113,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const textDisplay = document.getElementById("textDisplay");
     const arena = document.getElementById("typingArena") || document.querySelector(".typing-arena");
     const restartBtn = document.getElementById("restartBtn");
-    const nextBtn = document.getElementById("nextBtn");
+    const nextBtn = document.getElementById("nextPassageBtn") || document.getElementById("nextBtn");
+    const passageNum = document.getElementById("passageNum");
 
     function loadPassage(index) {
         if (!textDisplay) return;
         const text = passages[index];
         textDisplay.innerHTML = "";
         
-        text.split("").forEach((char, idx) => {
-            const span = document.createElement("span");
-            span.classList.add("char", "pending");
-            if (idx === 0) span.classList.add("current");
-            span.textContent = char;
-            textDisplay.appendChild(span);
+        // Split text by words to handle spaces correctly
+        const words = text.split(" ");
+        words.forEach((wordStr, wordIdx) => {
+            const wordSpan = document.createElement("span");
+            wordSpan.classList.add("word");
+            
+            wordStr.split("").forEach((char) => {
+                const span = document.createElement("span");
+                span.classList.add("char", "pending");
+                span.textContent = char;
+                wordSpan.appendChild(span);
+            });
+
+            // Append space character span after each word except the last one
+            if (wordIdx < words.length - 1) {
+                const spaceSpan = document.createElement("span");
+                spaceSpan.classList.add("char", "pending");
+                spaceSpan.textContent = " ";
+                wordSpan.appendChild(spaceSpan);
+            }
+
+            textDisplay.appendChild(wordSpan);
         });
 
+        // Set initial current class on the very first character
+        const firstChar = textDisplay.querySelector(".char");
+        if (firstChar) firstChar.classList.add("current");
+
+        if (passageNum) passageNum.textContent = `Passage #${index + 1}`;
         resetState();
     }
 
