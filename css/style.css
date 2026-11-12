@@ -1,392 +1,448 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Speed Typing Test // CYBERTYPER</title>
-  
-  <link rel="canonical" href="https://typigamx.in/games/speed-test.html">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://typigamx.in/games/speed-test.html">
-  <meta property="og:title" content="Speed Typing Test // CYBERTYPER">
-  <meta property="og:description" content="Test your pure typing speed & accuracy with live character highlighting, dynamic WPM metrics, and detailed completion analytics.">
-  <meta property="og:image" content="https://typigamx.in/image/og-preview.png">
+/* ==========================================
+   CYBERTYPER - Main Stylesheet
+   ================================          */
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-  
-  <!-- Link Your Consolidated CSS File -->
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <div class="stars-bg"></div>
+:root {
+  --bg-main: #0d0f18;
+  --bg-card: rgba(18, 22, 38, 0.7);
+  --bg-card-hover: rgba(26, 32, 54, 0.85);
+  --text-main: #f0f4f8;
+  --text-muted: #94a3b8;
+  --border-neon: rgba(0, 240, 255, 0.25);
+  --border-neon-hover: rgba(0, 240, 255, 0.6);
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff007f;
+  --neon-emerald: #10b981;
+  --neon-gold: #f59e0b;
+}
 
-  <div class="container">
-    <!-- Header Integration -->
-    <header class="site-header">
-      <a href="../index.html" class="brand-wrapper">
-        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" alt="CYBERTYPER Logo" class="site-logo">
-        <div>
-          <div class="brand-title">CYBERTYPER</div>
-          <div class="brand-subtitle">Space Typing Arcade</div>
-        </div>
-      </a>
+[data-theme="light"] {
+  --bg-main: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: rgba(241, 245, 249, 1);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-neon: rgba(14, 165, 233, 0.3);
+  --border-neon-hover: rgba(14, 165, 233, 0.7);
+  --neon-cyan: #0284c7;
+  --neon-pink: #db2777;
+  --neon-emerald: #059669;
+  --neon-gold: #d97706;
+}
 
-      <!-- Navigation Menu -->
-      <nav id="cyberMainNav" class="cyber-nav" aria-label="Main Navigation">
-        <div class="cyber-nav-item">
-          <a href="../index.html" class="cyber-nav-link">Home</a>
-        </div>
-        <div class="cyber-nav-item cyber-dropdown" id="cyberGamesDropdown">
-          <button class="cyber-nav-link active" id="cyberGamesTrigger" aria-expanded="false" aria-haspopup="true">
-            Games <span class="dropdown-arrow">▼</span>
-          </button>
-          <ul class="cyber-dropdown-menu" aria-label="Games Submenu">
-            <li class="cyber-dropdown-item"><a href="speed-test.html" class="cyber-dropdown-link">⚡ Speed Typing Test</a></li>
-            <li class="cyber-dropdown-item"><a href="falling-words.html" class="cyber-dropdown-link">🌧️ Falling Words</a></li>
-            <li class="cyber-dropdown-item"><a href="typing-race.html" class="cyber-dropdown-link">🏎️ Typing Race vs Bot</a></li>
-            <li class="cyber-dropdown-item"><a href="asteroid-game.html" class="cyber-dropdown-link">☄️ Falling Asteroids</a></li>
-          </ul>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="../pages/content.html" class="cyber-nav-link">News</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="../pages/about.html" class="cyber-nav-link">About</a>
-        </div>
-        <div class="cyber-nav-item">
-          <a href="../pages/contact.html" class="cyber-nav-link">Contact</a>
-        </div>
-      </nav>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
 
-      <!-- Actions: Theme Toggle + Sound + Hamburger -->
-      <div class="header-actions">
-        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
-          <span id="themeIcon">☀️</span>
-        </button>
-        <button id="soundToggle" class="sound-toggle-btn" aria-label="Toggle Sound" title="Sound Mute/Unmute">
-          <span id="soundIcon">🔊</span>
-        </button>
-        <button id="cyberNavToggle" class="cyber-hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="cyberMainNav">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </header>
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    <!-- Mode Selector & PB tracker -->
-    <div class="mode-bar" style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); border:1px solid var(--border-neon); border-radius:12px; padding:0.6rem 1.25rem; margin-bottom:1.25rem;">
-      <div class="mode-group" style="display:flex; gap:0.5rem; align-items:center;">
-        <span style="color:var(--text-muted);">Mode:</span>
-        <button class="mode-btn active" data-mode="passage">Passage</button>
-        <button class="mode-btn" data-mode="30">30s Rush</button>
-        <button class="mode-btn" data-mode="60">60s Matrix</button>
-      </div>
-      <div class="pb-pill">
-        <span>★ PB:</span>
-        <span id="personalBest">0</span> WPM
-      </div>
-    </div>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
 
-    <!-- HUD -->
-    <div class="hud-bar" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem; margin-bottom:1.25rem;">
-      <div class="stat-card wpm" style="background:var(--bg-card); border:1px solid var(--border-neon); border-radius:12px; padding:0.85rem; text-align:center;">
-        <div class="stat-label">Net WPM</div>
-        <div class="stat-value" id="hudWpm">0</div>
-      </div>
-      <div class="stat-card acc" style="background:var(--bg-card); border:1px solid var(--border-neon); border-radius:12px; padding:0.85rem; text-align:center;">
-        <div class="stat-label">Accuracy</div>
-        <div class="stat-value" id="hudAcc">100%</div>
-      </div>
-      <div class="stat-card err" style="background:var(--bg-card); border:1px solid var(--border-neon); border-radius:12px; padding:0.85rem; text-align:center;">
-        <div class="stat-label">Errors</div>
-        <div class="stat-value" id="hudErr">0</div>
-      </div>
-      <div class="stat-card time" style="background:var(--bg-card); border:1px solid var(--border-neon); border-radius:12px; padding:0.85rem; text-align:center;">
-        <div class="stat-label">Time</div>
-        <div class="stat-value" id="hudTime">00:00</div>
-      </div>
-    </div>
+/* Header & Navigation */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-neon);
+  margin-bottom: 2rem;
+}
 
-    <div class="progress-track">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
 
-    <!-- Main Arena -->
-    <div class="typing-arena" id="typingArena">
-      <input type="text" id="mobileInput" class="hidden-input" autocomplete="off" autocapitalize="off" spellcheck="false" style="position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:text; z-index:5;">
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-main);
+}
 
-      <div class="text-display-wrapper" id="displayWrapper">
-        <div class="text-display" id="textDisplay"></div>
-      </div>
+.brand-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
 
-      <div class="focus-tip">
-        <span class="focus-badge">✦ Tab + Enter / Esc to restart</span>
-        <span id="passageNum">Passage #1</span>
-      </div>
-    </div>
+.cyber-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
 
-    <div class="action-controls" style="display:flex; justify-content:center; gap:1rem; margin-top:1.5rem;">
-      <button id="restartBtn" class="btn-action cyber-nav-link"><span>↺</span> Restart (Esc)</button>
-      <button id="nextPassageBtn" class="btn-action cyber-nav-link"><span>⏭</span> Next Passage</button>
-    </div>
+.cyber-nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
 
-    <footer class="site-footer">
-      <ul class="footer-nav">
-        <li><a href="../index.html">Home Hub</a></li>
-        <li><a href="#">Benchmark Rules</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="footer-copy">© 2026 CYBERTYPER. All rights reserved.</p>
-    </footer>
-  </div>
+.cyber-nav-link:hover, .cyber-nav-link.active {
+  color: var(--neon-cyan);
+}
 
-  <!-- JavaScript Engine (Theme Toggle, Modes, Story Passages & Typing Test) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Theme Toggle Handler
-      const themeToggleBtn = document.getElementById("themeToggleBtn");
-      const themeIcon = document.getElementById("themeIcon");
+.cyber-dropdown {
+  position: relative;
+}
 
-      const savedTheme = localStorage.getItem("cyber_theme") || "dark";
-      if (savedTheme === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-        if (themeIcon) themeIcon.textContent = "🌙";
-      } else {
-        document.documentElement.removeAttribute("data-theme");
-        if (themeIcon) themeIcon.textContent = "☀️";
-      }
+.cyber-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon);
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 10;
+}
 
-      if (themeToggleBtn) {
-        themeToggleBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          const currentTheme = document.documentElement.getAttribute("data-theme");
-          if (currentTheme === "light") {
-            document.documentElement.removeAttribute("data-theme");
-            localStorage.setItem("cyber_theme", "dark");
-            if (themeIcon) themeIcon.textContent = "☀️";
-          } else {
-            document.documentElement.setAttribute("data-theme", "light");
-            localStorage.setItem("cyber_theme", "light");
-            if (themeIcon) themeIcon.textContent = "🌙";
-          }
-        });
-      }
+.cyber-dropdown:hover .cyber-dropdown-menu {
+  display: block;
+}
 
-      // 2. Mobile Nav Toggle
-      const navToggle = document.getElementById('cyberNavToggle');
-      const mainNav = document.getElementById('cyberMainNav');
-      if (navToggle && mainNav) {
-        navToggle.addEventListener('click', () => {
-          mainNav.classList.toggle('nav-open');
-        });
-      }
+.cyber-dropdown-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
 
-      // 3. Typing Game Engine & Passages
-      const passages = [
-        "Leo woke up early to watch the sunrise. The sky started soft and pink, turning bright gold as the morning breeze rustled the garden leaves. He loved these quiet moments before the busy day began.",
-        "Yesterday, his grandfather had shared an ancient wooden puzzle. The complex mechanism featured intricate brass gears and a hidden latch. At first, Leo felt overwhelmed by the perplexing design. Every twist seemed futile, and the tiny interlocking pieces resisted his logical efforts.",
-        "Instead of surrendering, he analyzed the geometric patterns carefully. He discovered a subtle indentation on the side panel. With a gentle push, a secret compartment opened, revealing a handwritten journal from decades past. The fading pages detailed a remarkable journey across uncharted oceans, filled with breathtaking discoveries and profound resilience.",
-        "Leo realized that every challenge in life, no matter how formidable or obscure, carries hidden wisdom. By maintaining relentless curiosity and patience, we unlock doors we never knew existed. He smiled, ready to embrace whatever extraordinary adventures awaited him today."
-      ];
+.cyber-dropdown-link:hover {
+  background: var(--border-neon);
+  color: var(--neon-cyan);
+}
 
-      let currentPassageIndex = 0;
-      let currentMode = "passage";
-      let timer = null;
-      let timeElapsed = 0;
-      let timeLeft = 0;
-      let errors = 0;
-      let isStarted = false;
-      let isFinished = false;
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
 
-      const textDisplay = document.getElementById("textDisplay");
-      const mobileInput = document.getElementById("mobileInput");
-      const typingArena = document.getElementById("typingArena");
-      const hudWpm = document.getElementById("hudWpm");
-      const hudAcc = document.getElementById("hudAcc");
-      const hudErr = document.getElementById("hudErr");
-      const hudTime = document.getElementById("hudTime");
-      const progressFill = document.getElementById("progressFill");
-      const passageNum = document.getElementById("passageNum");
-      const restartBtn = document.getElementById("restartBtn");
-      const nextPassageBtn = document.getElementById("nextPassageBtn");
-      const modeButtons = document.querySelectorAll(".mode-btn");
+.sound-toggle-btn, .theme-toggle-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon);
+  color: var(--text-main);
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
 
-      function loadPassage(index) {
-        if (!textDisplay) return;
-        const text = passages[index];
-        textDisplay.innerHTML = "";
-        
-        const words = text.split(" ");
-        words.forEach((wordStr, wordIdx) => {
-          const wordSpan = document.createElement("span");
-          wordSpan.classList.add("word");
-          
-          wordStr.split("").forEach((char) => {
-            const span = document.createElement("span");
-            span.classList.add("char", "pending");
-            span.textContent = char;
-            wordSpan.appendChild(span);
-          });
+.sound-toggle-btn:hover, .theme-toggle-btn:hover {
+  border-color: var(--neon-cyan);
+}
 
-          if (wordIdx < words.length - 1) {
-            const spaceSpan = document.createElement("span");
-            spaceSpan.classList.add("char", "pending");
-            spaceSpan.textContent = " ";
-            wordSpan.appendChild(spaceSpan);
-          }
+.cyber-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-          textDisplay.appendChild(wordSpan);
-        });
+.cyber-hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-main);
+}
 
-        const firstChar = textDisplay.querySelector(".char");
-        if (firstChar) firstChar.classList.add("current");
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
 
-        if (passageNum) passageNum.textContent = currentMode === "passage" ? `Passage #${index + 1}` : `Timed Mode (${currentMode}s)`;
-        resetState();
-      }
+.hero-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--border-neon);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-      function resetState() {
-        clearInterval(timer);
-        isStarted = false;
-        isFinished = false;
-        timeElapsed = 0;
-        if (currentMode === "30") timeLeft = 30;
-        else if (currentMode === "60") timeLeft = 60;
-        else timeLeft = 0;
+.hero-title {
+  font-size: 2.75rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
 
-        errors = 0;
-        if (mobileInput) mobileInput.value = "";
-        if (typingArena) typingArena.classList.remove("focused");
-        if (hudWpm) hudWpm.textContent = "0";
-        if (hudAcc) hudAcc.textContent = "100%";
-        if (hudErr) hudErr.textContent = "0";
-        
-        if (currentMode === "passage") {
-          if (hudTime) hudTime.textContent = "00:00";
-        } else {
-          let mins = Math.floor(timeLeft / 60);
-          let secs = timeLeft % 60;
-          if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-        }
-        if (progressFill) progressFill.style.width = "0%";
-      }
+.glow-cyan { color: var(--neon-cyan); text-shadow: 0 0 20px rgba(0, 240, 255, 0.3); }
+.glow-pink { color: var(--neon-pink); text-shadow: 0 0 20px rgba(255, 0, 127, 0.3); }
 
-      function initTest() {
-        loadPassage(currentPassageIndex);
-        if (mobileInput) mobileInput.focus();
-      }
+.hero-desc {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
 
-      modeButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-          modeButtons.forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          currentMode = btn.getAttribute("data-mode");
-          initTest();
-        });
-      });
+/* Game Cards Grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
 
-      if (mobileInput) {
-        mobileInput.addEventListener("input", () => {
-          if (isFinished) return;
+.game-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-          const typedValue = mobileInput.value;
-          const chars = textDisplay.querySelectorAll(".char");
+.game-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.15);
+}
 
-          if (!isStarted && typedValue.length > 0) {
-            isStarted = true;
-            if (typingArena) typingArena.classList.add("focused");
-            
-            timer = setInterval(() => {
-              if (currentMode === "passage") {
-                timeElapsed++;
-                let mins = Math.floor(timeElapsed / 60);
-                let secs = timeElapsed % 60;
-                if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-                
-                if (timeElapsed > 0) {
-                  let wordsTypedCount = (typedValue.length / 5);
-                  let wpm = Math.round((wordsTypedCount / timeElapsed) * 60);
-                  if (hudWpm) hudWpm.textContent = wpm > 0 ? wpm : 0;
-                }
-              } else {
-                timeLeft--;
-                let mins = Math.floor(timeLeft / 60);
-                let secs = timeLeft % 60;
-                if (hudTime) hudTime.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-                
-                let timeSpent = (currentMode === "30" ? 30 : 60) - timeLeft;
-                if (timeSpent > 0) {
-                  let wordsTypedCount = (typedValue.length / 5);
-                  let wpm = Math.round((wordsTypedCount / timeSpent) * 60);
-                  if (hudWpm) hudWpm.textContent = wpm > 0 ? wpm : 0;
-                }
+.card-body {
+  padding: 1.5rem;
+}
 
-                if (timeLeft <= 0) {
-                  clearInterval(timer);
-                  isFinished = true;
-                  if (typingArena) typingArena.classList.remove("focused");
-                }
-              }
-            }, 1000);
-          }
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
 
-          errors = 0;
-          chars.forEach((charSpan, idx) => {
-            charSpan.classList.remove("correct", "wrong", "current", "pending");
-            if (idx < typedValue.length) {
-              if (typedValue[idx] === charSpan.textContent) {
-                charSpan.classList.add("correct");
-              } else {
-                charSpan.classList.add("wrong");
-                errors++;
-              }
-            } else if (idx === typedValue.length) {
-              charSpan.classList.add("current");
-            } else {
-              charSpan.classList.add("pending");
-            }
-          });
+.card-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
 
-          if (hudErr) hudErr.textContent = errors;
-          let accuracy = typedValue.length > 0 ? Math.max(0, Math.round(((typedValue.length - errors) / typedValue.length) * 100)) : 100;
-          if (hudAcc) hudAcc.textContent = `${accuracy}%`;
+.card-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
 
-          if (progressFill) {
-            let progressPct = (typedValue.length / chars.length) * 100;
-            progressFill.style.width = `${Math.min(100, progressPct)}%`;
-          }
+.card-action-text {
+  color: var(--neon-cyan);
+  font-weight: 600;
+}
 
-          if (currentMode === "passage" && typedValue.length >= chars.length) {
-            clearInterval(timer);
-            isFinished = true;
-            if (typingArena) typingArena.classList.remove("focused");
-          }
-        });
-      }
+.card-meta {
+  color: var(--text-muted);
+}
 
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" || (e.key === "Tab" && document.activeElement === mobileInput)) {
-          if (e.key === "Tab") e.preventDefault();
-          initTest();
-        }
-      });
+/* Features Strip */
+.features-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
 
-      if (restartBtn) restartBtn.addEventListener("click", () => initTest());
-      if (nextPassageBtn) {
-        nextPassageBtn.addEventListener("click", () => {
-          currentPassageIndex = (currentPassageIndex + 1) % passages.length;
-          initTest();
-        });
-      }
+.feature-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon);
+  padding: 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 
-      if (typingArena && mobileInput) {
-        typingArena.addEventListener("click", () => mobileInput.focus());
-      }
+.feature-icon {
+  font-size: 1.75rem;
+}
 
-      initTest();
-    });
-  </script>
-</body>
-</html>
+.feature-heading {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.feature-sub {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Editorial Article Section */
+.content-article-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.content-article-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.content-article-section h3 {
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+.content-article-section p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.content-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.guide-card {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-neon);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+/* Typing Arena & Speed Test Classes */
+.typing-arena {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.typing-arena.focused {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+}
+
+.text-display {
+  font-size: 1.35rem;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.char.pending { color: var(--text-muted); }
+.char.correct { color: var(--text-main); }
+.char.wrong { color: var(--neon-pink); background: rgba(255, 0, 127, 0.15); border-radius: 2px; }
+.char.current { border-left: 2px solid var(--neon-cyan); animation: blink 1s infinite; }
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: var(--neon-cyan); }
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--neon-cyan);
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+.focus-tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.focus-badge {
+  background: rgba(0, 240, 255, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-neon);
+  color: var(--neon-cyan);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border-neon);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--neon-cyan);
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
