@@ -339,8 +339,7 @@
   <script src="./js/nav.js" defer></script>
 
   <!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9574453461058170"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9574453461058170" crossorigin="anonymous"></script>
 
   <!-- Self-Contained High-Visibility Stars Engine -->
   <script>
@@ -389,6 +388,7 @@
       requestAnimationFrame(draw);
     })();
   </script>
+
   <!-- Direct Standalone Theme & Sound Handler -->
   <script>
     (function() {
@@ -396,7 +396,6 @@
       const themeBtn = document.getElementById('themeToggleBtn');
       const themeIcon = document.getElementById('themeIcon');
       
-      // Load saved theme preference
       const savedTheme = localStorage.getItem('cyber_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
       if (themeIcon) {
@@ -406,7 +405,7 @@
       if (themeBtn) {
         themeBtn.addEventListener('click', function(e) {
           e.preventDefault();
-          const currentTheme = document.documentElement.setAttribute('data-theme') || 'dark';
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
           const newTheme = currentTheme === 'light' ? 'dark' : 'light';
           
           document.documentElement.setAttribute('data-theme', newTheme);
@@ -432,7 +431,6 @@
       }
       updateSoundUI();
 
-      // Simple Synth Beep on Click if unmuted
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       let audioCtx = null;
 
