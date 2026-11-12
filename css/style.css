@@ -1,10 +1,7 @@
 /* ==========================================================================
-   NEON SPACE TYPING HUB - GLOBAL STYLES (LIGHT & DARK THEME ENABLED)
+   CYBERTYPER - DESKTOP-OPTIMIZED GLOBAL STYLES
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   DESIGN TOKENS & SYSTEM VARIABLES
-   -------------------------------------------------------------------------- */
 :root {
   /* Surface & Base Colors (Dark Mode Default) */
   --bg-deep: #060814;
@@ -80,14 +77,11 @@
   --shadow-box: 0 8px 30px rgba(20, 35, 60, 0.08);
 }
 
-/* --------------------------------------------------------------------------
-   RESET & FOUNDATIONS
-   -------------------------------------------------------------------------- */
+/* RESET & FOUNDATIONS */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -140,7 +134,6 @@ body {
   z-index: 1;
 }
 
-/* Arena & Game Canvas Wrapper */
 body:has(.canvas-wrap) .container,
 .game-container {
   max-width: 780px;
@@ -154,9 +147,7 @@ body:has(.canvas-wrap) .container,
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   SITE HEADER & NAVIGATION
-   -------------------------------------------------------------------------- */
+/* SITE HEADER & NAVIGATION (Desktop Only) */
 .site-header {
   position: sticky;
   top: 0;
@@ -187,16 +178,6 @@ body:has(.canvas-wrap) .container,
   width: auto;
   object-fit: contain;
   display: block;
-}
-
-.brand-icon {
-  width: 38px;
-  height: 38px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  flex-shrink: 0;
 }
 
 .brand-title {
@@ -295,14 +276,12 @@ body:has(.canvas-wrap) .container,
   z-index: 1050;
 }
 
-@media (min-width: 901px) {
-  .cyber-dropdown:hover .cyber-dropdown-menu,
-  .cyber-dropdown:focus-within .cyber-dropdown-menu,
-  .cyber-dropdown.dropdown-open .cyber-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+.cyber-dropdown:hover .cyber-dropdown-menu,
+.cyber-dropdown:focus-within .cyber-dropdown-menu,
+.cyber-dropdown.dropdown-open .cyber-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .cyber-dropdown-item {
@@ -339,42 +318,9 @@ body:has(.canvas-wrap) .container,
   transform: rotate(180deg);
 }
 
-/* Hamburger & Actions */
+/* Hidden Hamburger on Desktop */
 .cyber-hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 44px;
-  height: 44px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-neon);
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 8px;
-  transition: var(--transition-smooth);
-  color: var(--cyan-glow);
-}
-
-.cyber-hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: var(--cyan-glow);
-  box-shadow: 0 0 6px var(--cyan-glow);
-  transition: var(--transition-smooth);
-  border-radius: 2px;
-}
-
-.cyber-hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.cyber-hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.cyber-hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  display: none !important;
 }
 
 .header-actions {
@@ -413,14 +359,11 @@ body:has(.canvas-wrap) .container,
   color: var(--danger-glow);
 }
 
-/* --------------------------------------------------------------------------
-   HERO SECTION
-   -------------------------------------------------------------------------- */
+/* HERO SECTION */
 .hero {
   text-align: center;
   margin-bottom: 3.5rem;
   min-height: 210px;
-  contain: layout;
 }
 
 .hero-badge {
@@ -438,7 +381,7 @@ body:has(.canvas-wrap) .container,
 }
 
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-size: 3.4rem;
   font-weight: 900;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -464,15 +407,12 @@ body:has(.canvas-wrap) .container,
   line-height: 1.6;
 }
 
-/* --------------------------------------------------------------------------
-   GAMES GRID & CARDS (IMAGE BANNER READY)
-   -------------------------------------------------------------------------- */
+/* GAMES GRID & CARDS */
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.75rem;
   margin-bottom: 3.5rem;
-  contain: layout;
 }
 
 .game-card {
@@ -521,7 +461,6 @@ body:has(.canvas-wrap) .container,
   opacity: 1;
 }
 
-/* Image Thumbnail Container */
 .card-thumb-wrap {
   position: relative;
   width: 100%;
@@ -545,7 +484,6 @@ body:has(.canvas-wrap) .container,
   filter: brightness(1.12);
 }
 
-/* Badge Tag positioned over the image */
 .overlay-tag {
   position: absolute;
   top: 12px;
@@ -561,7 +499,6 @@ body:has(.canvas-wrap) .container,
   background: rgba(255, 255, 255, 0.88);
 }
 
-/* Card Body Section */
 .card-body {
   padding: 1.25rem 1.4rem 0.75rem 1.4rem;
   flex-grow: 1;
@@ -627,12 +564,10 @@ body:has(.canvas-wrap) .container,
 .game-card.theme-emerald { --card-accent: var(--emerald-glow); --card-glow: rgba(0, 153, 85, 0.25); }
 .game-card.theme-gold    { --card-accent: var(--gold-glow);    --card-glow: rgba(196, 128, 0, 0.25); }
 
-/* --------------------------------------------------------------------------
-   FEATURES STRIP & EDITORIAL ARTICLE
-   -------------------------------------------------------------------------- */
+/* FEATURES STRIP & EDITORIAL ARTICLE */
 .features-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-top: 2rem;
   padding-top: 2rem;
@@ -667,7 +602,6 @@ body:has(.canvas-wrap) .container,
   color: var(--text-muted);
 }
 
-/* Editorial Guide */
 .content-article-section {
   margin-top: 3.5rem;
   padding: 2.5rem;
@@ -705,7 +639,7 @@ body:has(.canvas-wrap) .container,
 
 .content-grid-2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 1.5rem 0;
 }
@@ -728,9 +662,7 @@ body:has(.canvas-wrap) .container,
   margin-bottom: 0;
 }
 
-/* --------------------------------------------------------------------------
-   SPEED TYPING TEST ARENA & TYPOGRAPHY
-   -------------------------------------------------------------------------- */
+/* TYPING ARENA */
 .typing-arena {
   background: var(--bg-card);
   border: 1px solid var(--border-neon);
@@ -796,7 +728,6 @@ body:has(.canvas-wrap) .container,
   text-decoration: underline wavy var(--danger-glow);
 }
 
-/* Caret Cursor */
 .char.current::before,
 .char.current-end::after {
   content: '';
@@ -824,25 +755,7 @@ body:has(.canvas-wrap) .container,
   }
 }
 
-/* Game Text Fields */
-.asteroid-word,
-.game-word,
-.typing-target,
-.word-target,
-.typed-text,
-input[type="text"].game-input,
-.terminal-input,
-#gameInput,
-#typingInput {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: none;
-}
-
-/* --------------------------------------------------------------------------
-   FOOTER
-   -------------------------------------------------------------------------- */
+/* FOOTER */
 .site-footer {
   margin-top: auto;
   text-align: center;
@@ -882,144 +795,4 @@ input[type="text"].game-input,
 .footer-copy {
   font-size: 0.82rem;
   color: var(--text-dim);
-}
-
-/* --------------------------------------------------------------------------
-   RESPONSIVE DESIGN & ACCESSIBILITY
-   -------------------------------------------------------------------------- */
-body.nav-locked {
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
-  .cyber-hamburger {
-    display: flex;
-  }
-
-  .cyber-nav {
-    position: fixed;
-    top: 65px;
-    inset-inline: 0;
-    bottom: 0;
-    background: var(--header-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1.5rem 1.25rem 3rem;
-    gap: 0.6rem;
-    overflow-y: auto;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: var(--transition-smooth);
-    z-index: 999;
-    border-bottom: 2px solid var(--border-neon);
-  }
-
-  .cyber-nav.nav-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .cyber-nav-item {
-    width: 100%;
-  }
-
-  .cyber-nav-link {
-    width: 100%;
-    min-height: 48px;
-    font-size: 1.15rem;
-    padding: 0.85rem 1.25rem;
-    justify-content: space-between;
-    background: var(--bg-card);
-    border: 1px solid var(--border-neon);
-  }
-
-  .cyber-dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    background: var(--dropdown-bg);
-    border: 1px solid var(--border-neon);
-    margin-top: 0.5rem;
-    margin-left: 0.75rem;
-    display: none;
-  }
-
-  .cyber-dropdown.dropdown-open .cyber-dropdown-menu {
-    display: block;
-  }
-
-  .cyber-dropdown-link {
-    min-height: 44px;
-    font-size: 1.02rem;
-    padding: 0.75rem 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .site-header {
-    min-height: 60px;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .brand-title {
-    font-size: 1.25rem;
-  }
-
-  .brand-subtitle {
-    display: none;
-  }
-
-  .hero {
-    min-height: 180px;
-  }
-
-  .hero-title {
-    font-size: 2.1rem;
-  }
-
-  .games-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .card-thumb-wrap {
-    height: 160px;
-  }
-
-  .canvas-wrap {
-    height: 540px;
-  }
-
-  .content-article-section {
-    padding: 1.5rem;
-  }
-}
-
-/* Reduced Motion Safety */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .stars-bg {
-    display: none;
-  }
-
-  .game-card:hover {
-    transform: none;
-  }
-
-  .game-card:hover .card-thumb-img {
-    transform: none;
-  }
 }
